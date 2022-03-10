@@ -52,7 +52,7 @@ async function wordRank() {
   function sortArrayByFreq(words) {
     const counter = Object.create(null);
     words.forEach(function (word) {
-      counter[word] = (counter[word] || 0) + 1;
+      counter[word.toLowerCase()] = (counter[word.toLowerCase()] || 0) + 1;
     });
     const blacklist = ["their", "about"];
     blacklist.forEach((el) => (counter[el] = 0));
@@ -68,5 +68,5 @@ async function wordRank() {
   for (let word of word5) {
     res += `${word[0]}  ${word[1]}\n`;
   }
-  await chrome.storage.local.set({ word5: res });
+  chrome.storage.local.set({ word5: res });
 }
