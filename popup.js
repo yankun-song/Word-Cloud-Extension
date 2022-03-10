@@ -33,7 +33,7 @@ function contentGetter() {
   console.log("hello Yankun!", str);
   window.open(
     // "/Users/yankunsong/Desktop/wordcloud/chart.html",
-    "/Users/yankunsong/Desktop/wordcloud/chart.html",
+    "https://quickchart.io/wordcloud?text=" + str,
     "CNN_WindowName"
   );
 
