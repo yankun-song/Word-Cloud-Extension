@@ -1,5 +1,3 @@
-//const fs = require("fs");
-
 // Initialize button with user's preferred color
 let changeColor = document.getElementById("changeColor");
 
@@ -33,16 +31,11 @@ function contentGetter() {
   }
   var str = document.body.textContent;
   console.log("hello Yankun!", str);
-  const object = {
-    format: "png",
-    width: 1000,
-    height: 1000,
-    fontFamily: "sans-serif",
-    fontScale: 15,
-    scale: "linear",
-    text: "This is a test. I repeat, this is a test. We are only testing the functionality of this api, nothing else. End of test.",
-  };
-  object.text = str;
-  fs.appendFileSync("churchill.json", object);
+  window.open(
+    // "/Users/yankunsong/Desktop/wordcloud/chart.html",
+    "/Users/yankunsong/Desktop/wordcloud/chart.html",
+    "CNN_WindowName"
+  );
+
   //document.body.innerHTML = "<pre>" + str + "</pre>";
 }
