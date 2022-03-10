@@ -8,13 +8,17 @@ chrome.storage.sync.get("color", ({ color }) => {
 // When the button is clicked, inject setPageBackgroundColor into current page
 changeColor.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-let changeColor = document.getElementById("changeColor");
-
+  let wordCount = document.getElementById("wordCount");
+  wordCount.innerText = "123";
   console.log(tab.url);
-  chrome.scripting.executeScript({
+  await chrome.scripting.executeScript({
     target: { tabId: tab.id },
     function: wordRank,
   });
+  chrome.storage.local.get("word5", (res) => {
+    wordCount.innerText = res.word5;
+  });
+  //wordCount.innerText = "345";
 });
 
 // The body of this function will be executed as a content script inside the
@@ -25,7 +29,7 @@ let changeColor = document.getElementById("changeColor");
 //   });
 // }
 
-function wordRank() {
+async function wordRank() {
   function contentGetter() {
     var bodyScripts = document.querySelectorAll("body script");
     for (var i = 0; i < bodyScripts.length; i++) {
@@ -59,4 +63,10 @@ function wordRank() {
   const str = contentGetter();
   const words = contentToArr(str);
   const word5 = sortArrayByFreq(words);
+  console.log(word5); //[[police, 15], [black,13]]
+  let res = "";
+  for (let word of word5) {
+    res += `${word[0]}  ${word[1]}\n`;
+  }
+  await chrome.storage.local.set({ word5: res });
 }
