@@ -66,7 +66,7 @@ async function wordRank() {
   console.log(word5); //[[police, 15], [black,13]]
   let res = "";
   for (let word of word5) {
-    res += `${word[0]}  ${word[1]}\n`;
+    res += `${word[0]}:  ${word[1]}\n`;
   }
   chrome.storage.local.set({ word5: res });
 }
