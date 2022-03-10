@@ -1,0 +1,9 @@
+{
+  "format": "png",
+  "width": 1000,
+  "height": 1000,
+  "fontFamily": "sans-serif",
+  "fontScale": 15,
+  "scale": "linear",
+  "text": "This is a test. I repeat, this is a test. We are only testing the functionality of this api, nothing else. End of test."
+}
