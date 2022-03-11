@@ -9,8 +9,8 @@ chrome.storage.sync.get("color", ({ color }) => {
 changeColor.addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   let wordCount = document.getElementById("wordCount");
-  wordCount.innerText = "123";
-  console.log(tab.url);
+  //wordCount.innerText = "123";
+  //console.log(tab.url);
   await chrome.scripting.executeScript({
     target: { tabId: tab.id },
     function: wordRank,
